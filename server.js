@@ -5,6 +5,12 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
+// public directory set for EJS template
+app.use(bodyParser.urlencoded({extended:true}));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+
 // Configure express-session
 app.use(session({
   secret: 'your-secret-key', // Replace with your own secret key
@@ -23,10 +29,22 @@ const isAuthenticated = (req, res, next) => {
   }
 };
 
+/*
+    GET request
+*/
+
+app.get('/', (req, res) => {
+  res.render('login');
+});
+
 // Login route
 app.get('/login', (req, res) => {
   res.send('Please enter your credentials:');
 });
+
+/*
+    POST request
+*/
 
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
@@ -42,7 +60,7 @@ app.post('/login', (req, res) => {
 
 // Table route
 app.get('/table', isAuthenticated, (req, res) => {
-  res.send('Welcome to the table.');
+  res.render('prevalidation');
 });
 
 // Start the server
