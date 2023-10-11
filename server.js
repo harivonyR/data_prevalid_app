@@ -34,6 +34,10 @@ const isAuthenticated = (req, res, next) => {
     GET request
 */
 
+app.use((req, res) => {
+  res.status(404).render('not_found');
+});
+
 app.get('/', (req, res) => {
   res.render('login');
 });
@@ -41,6 +45,12 @@ app.get('/', (req, res) => {
 // Login route
 app.get('/login', (req, res) => {
   res.send('Please enter your credentials:');
+});
+
+app.get('/logout', (req, res) => {
+  // Clear the authenticated session
+  req.session.authenticated = false;
+  res.redirect('/login');
 });
 
 /*
@@ -51,7 +61,7 @@ app.post('/login', (req, res) => {
   const { username, password } = req.body;
 
   // hardcoded username and password
-  if (username === 'user' && password === 'password') {
+  if (username === 'user' && password === 'password'){
     req.session.authenticated = true;
     res.redirect('/table');
   } else {
