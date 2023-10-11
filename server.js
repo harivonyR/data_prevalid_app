@@ -32,11 +32,9 @@ const isAuthenticated = (req, res, next) => {
   }
 };
 
-/*
+/********************
     GET request
 */
-
-
 
 app.get('/', (req, res) => {
   res.render('login');
@@ -53,11 +51,8 @@ app.get('/logout', (req, res) => {
   res.redirect('/login');
 });
 
-app.get("*",(req, res) => {
-  res.render('not_found');
-});
 
-/*
+/****************
     POST request
 */
 
