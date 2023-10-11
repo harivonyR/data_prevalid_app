@@ -10,8 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ejs": "file:../npm_package/ejs/ejs-main",
-    "express": "^4.18.2",
-    "express-session": "file:../npm_package/express_session/expressjs-session-2ae44ed"
+    "express": "^4.18.2"
   }
 }
