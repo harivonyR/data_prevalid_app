@@ -21,6 +21,8 @@ app.use(session({
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
+
 // Middleware to check if the user is authenticated
 const isAuthenticated = (req, res, next) => {
   if (req.session.authenticated) {
@@ -34,9 +36,7 @@ const isAuthenticated = (req, res, next) => {
     GET request
 */
 
-app.use((req, res) => {
-  res.status(404).render('not_found');
-});
+
 
 app.get('/', (req, res) => {
   res.render('login');
@@ -51,6 +51,10 @@ app.get('/logout', (req, res) => {
   // Clear the authenticated session
   req.session.authenticated = false;
   res.redirect('/login');
+});
+
+app.get("*",(req, res) => {
+  res.render('not_found');
 });
 
 /*
