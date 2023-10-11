@@ -44,7 +44,7 @@ app.get('/', (req, res) => {
 
 // Login route
 app.get('/login', (req, res) => {
-  res.send('Please enter your credentials:');
+  res.render('login');
 });
 
 app.get('/logout', (req, res) => {
