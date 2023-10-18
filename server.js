@@ -70,7 +70,27 @@ app.post('/login', (req, res) => {
 
 // Table route
 app.get('/table', isAuthenticated, (req, res) => {
-  res.render('prevalidation');
+  
+  let cds_data = [{
+    "Date" : "07/07/2023",
+    "Site" : "100 - BEHENJY",
+    "Region" : "Antananarivo",
+    "Carburant" : "GO",
+    "Statut" : "Validée",
+    "Origine" : "DMS",
+    "Livraison_BL" :"1000",
+    "Stock_d_ouverture" : "1230",
+    "Stock_theorique_final" : "354646",
+    "Stock_reel_final": "54654",
+    "Difference"	: "43",
+    "Volume_de_ventes"	: "125",
+    "Tests_de_pompe" : 	"0",
+    "Ecarts_vs_vente_pour_1000": "12",
+    "Cumul_vente": "4000",
+    "Cumul_ecarts":"24",
+    "Cumul_ecarts_vente":"411000"
+  }];
+  res.render('prevalidation',{cds_data:cds_data});
 });
 
 // Start the server

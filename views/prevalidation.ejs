@@ -1,7 +1,5 @@
 <%- include('partials/header') -%>
 <body>
-    <h1>    Prevalidation   </h1>
-
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
             <tr>
@@ -25,68 +23,31 @@
             </tr>
         </thead>
     <tbody class="tbody" style="font-weight: 100;">  
+        <% cds_data.forEach((data)=> { %>
         <tr>
-            <th>10/03/2023</th>
-            <th>100 - bEHENJY</th>
-            <th>ANTANANARIVO</th>
-            <th>0001 - GO</th>
-            <th>En cours</th>
-            <th>DMS</th>
-            <th>1 000</th>
-            <th>134 026</th>
-            <th>135 400</th>
-            <th>135 402</th>
-            <th>2</th>
-            <th>1 414</th>
-            <th>0</th>
-            <th>13</th>
-            <th>121000</th>
-            <th>-58,5</th>
-            <th>-26,3</th>
+            <th><%= data.Date %></th>
+            <th><%= data.Site %></th>
+            <th><%= data.Region %></th>
+            <th><%= data.Carburant %></th>
+            <th><%= data.Statut %></th>
+            <th><%= data.Origine %></th>
+            <th><%= data.Livraison_BL %></th>
+            <th><%= data.Stock_d_ouverture %></th>
+            <th><%= data.Stock_theorique_final %></th>
+            <th><%= data.Stock_reel_final %></th>
+            <th><%= data.Difference %></th>
+            <th><%= data.Volume_de_ventes %></th>
+            <th><%= data.Tests_de_pompe %></th>
+            <th><%= data.Ecarts_vs_vente_pour_1000 %></th>
+            <th><%= data.Cumul_vente %></th>
+            <th><%= data.Cumul_ecarts %></th>
+            <th><%= data.Cumul_ecarts_vente %></th>
         </tr>
-        <tr>
-            <th>10/03/2023</th>
-            <th>100 - IVANDRY</th>
-            <th>ANTANANARIVO</th>
-            <th>0001 - GO</th>
-            <th>En cours</th>
-            <th>DMS</th>
-            <th>1 000</th>
-            <th>134 026</th>
-            <th>135 400</th>
-            <th>135 402</th>
-            <th>2</th>
-            <th>1 414</th>
-            <th>0</th>
-            <th>13</th>
-            <th>121000</th>
-            <th>-58,5</th>
-            <th>-26,3</th>
-        </tr>     
+        <% }) %>
     </tbody>    
-        <tfoot>
-            <tr>
-                <th>Date</th>
-                <th>Site</th>
-                <th>Region</th>
-                <th>Carburant</th>
-                <th>Statut</th>
-                <th>Origine</th>
-                <th>Livraison (BL)</th>
-                <th>Stock d'ouverture</th>
-                <th>Stock théorique final</th>
-                <th>Stock réel final</th>
-                <th>Différence</th>
-                <th>Volume de ventes</th>
-                <th>Tests de pompe</th>
-                <th>Ecarts vs vente pour 1000</th>
-                <th>Cumul vente</th>
-                <th>Cumul écarts</th>
-                <th>%Cumul écarts vente</th>
-            </tr>
-        </tfoot>
-    </table>
+    </table>l
 
     <a href="/login"> go to login </a>
     <a href="/logout"> logout </a>
 </body>
+<%- include('partials/footer') -%>
